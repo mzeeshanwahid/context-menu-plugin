@@ -13,7 +13,7 @@ export default class MainMenu extends Menu {
         });
         
         //for(const component of editor.components.values()) {
-        for (const component of editor.components.filter(x => x.dockerNode == true).values()) {
+        for (const component of editor.components.values().filter(x => x.dockerNode == true)) {
             const path = allocate(component);
     
             if (Array.isArray(path)) { // add to the menu if path is array

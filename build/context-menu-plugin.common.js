@@ -1179,9 +1179,9 @@ function (_Menu) {
         }
       };
 
-      for (var _iterator = editor.components.filter(function (x) {
+      for (var _iterator = editor.components.values().filter(function (x) {
         return x.dockerNode == true;
-      }).values()[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+      })[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
         _loop();
       }
     } catch (err) {

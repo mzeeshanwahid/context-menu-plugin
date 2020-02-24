@@ -1140,6 +1140,7 @@ function (_Menu) {
       mouse.y = y;
     }); //for(const component of editor.components.values()) {
 
+    console.log("Component", editor.components);
     var _iteratorNormalCompletion = true;
     var _didIteratorError = false;
     var _iteratorError = undefined;
@@ -1149,7 +1150,7 @@ function (_Menu) {
         var component = _step.value;
         var path = allocate(component);
 
-        if (Array.isArray(path)) {
+        if (Array.isArray(path) && component.dockerNode == true) {
           // add to the menu if path is array
           _this.addItem(rename(component),
           /*#__PURE__*/
@@ -1179,9 +1180,7 @@ function (_Menu) {
         }
       };
 
-      for (var _iterator = editor.components.values().filter(function (x) {
-        return x.dockerNode == true;
-      })[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+      for (var _iterator = editor.components.values()[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
         _loop();
       }
     } catch (err) {

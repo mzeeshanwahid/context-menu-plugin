@@ -13,15 +13,17 @@ export default class MainMenu extends Menu {
         });
         
         //for(const component of editor.components.values()) {
-        for (const component of editor.components.values().filter(x => x.dockerNode == true)) {
+            console.log("Component", editor.components);
+        for (const component of editor.components.values()) {
             const path = allocate(component);
-    
-            if (Array.isArray(path)) { // add to the menu if path is array
+            
+            if (Array.isArray(path) && component.dockerNode == true) { // add to the menu if path is array
                 this.addItem(rename(component), async () => {
                     editor.addNode(await createNode(component, mouse));
                 }, path);
             }
         }
+        
     
         traverse(items, (name, func, path) => this.addItem(name, func, path))
     }

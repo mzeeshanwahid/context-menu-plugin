@@ -1138,7 +1138,8 @@ function (_Menu) {
           y = _ref2.y;
       mouse.x = x;
       mouse.y = y;
-    });
+    }); //for(const component of editor.components.values()) {
+
     var _iteratorNormalCompletion = true;
     var _didIteratorError = false;
     var _iteratorError = undefined;
@@ -1178,7 +1179,9 @@ function (_Menu) {
         }
       };
 
-      for (var _iterator = editor.components.values()[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+      for (var _iterator = editor.components.filter(function (x) {
+        return x.dockerNode == true;
+      }).values()[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
         _loop();
       }
     } catch (err) {
